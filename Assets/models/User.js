@@ -7,13 +7,14 @@ const userSchema = new Schema(
             type: String,
             requred: true,
             unique: true,
-            // add trimmed
+            trim: true,
         },
         email: {
             type: String,
             required: true,
             unique: true,
-            // must match (use validation and look into Mongoose validation)
+            match: [/.+@.+\..+/, 'Must match an email address!']
+            // must match (use validation and look into Mongoose validation -- look at docs!)
         },
         thoughts: [thoughtSchema],
         friends: [userSchema], // self-referenced using User model
