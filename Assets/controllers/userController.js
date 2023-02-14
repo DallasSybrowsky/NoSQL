@@ -77,7 +77,7 @@ module.exports = {
       { _id: req.params.userId },
       { $pull: { friends: req.params.friendId } },
       { new: true }
-    )
+      )
       .then((user) =>
         !user
           ? res.status(404).json({ message: "No user with that ID found." })
