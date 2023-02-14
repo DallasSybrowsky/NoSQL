@@ -6,7 +6,9 @@
 
 This is the backend of a Social Media site. It uses MongoDB, express, and several other technologies to power the site.
 
-Access to the video showing the functionality can be accessed [here](https://drive.google.com/file/d/1hsR7hizjvo23OhEFVeGFKtTqpnvv7bJv/view).
+** PLEASE NOTE ** After completing and submitting the assignment I discovered and patched an error in one of the routes. Access to the video showing the broken route can be accessed [here](https://drive.google.com/file/d/1hsR7hizjvo23OhEFVeGFKtTqpnvv7bJv/view).
+
+The video showing the corrected route with all functionality properly working can be found [here](https://drive.google.com/file/d/1G7kxLP02B-aTVHtJUmDOmanHxUeoTieS/view).
 
 ## Table of Contents
 
