@@ -11,15 +11,20 @@ module.exports = {
   // Get one user
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
-      .populate("thoughts")
-      .populate("friends")
       .select("-__v")
+      .populate("friends")
+      .populate("thoughts")
       .then((user) =>
         !user
           ? res.status(404).json({ message: " No user with that ID found." })
           : res.json(user)
       )
-      .catch((err) => res.status(500).json(err));
+      .catch((err) => {
+
+        console.log("err:" +err);
+
+        res.status(500).json(err)
+      });
   },
 
   // Create a new user
@@ -58,10 +63,11 @@ module.exports = {
 
   // Add a friend
   addFriend(req, res) {
+    console.log('hit the add friend route', req.params);
     User.findOneAndUpdate(
       { _id: req.params.userId },
-      { $addtoSet: { friends: req.params.friendId } },
-      { runValidators: true, new: true }
+      { $addToSet: { friends: req.params.friendId } },
+      { new: true }
     )
       .then((user) =>
         !user

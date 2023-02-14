@@ -4,14 +4,15 @@ module.exports = {
   // Get all thoughts
   getThoughts(req, res) {
     Thought.find({})
-      .then((thoughts) => res.json(thoughts))
+      .then((thought) => res.json(thought))
       .catch((err) => res.status(500).json(err));
   },
 
   // Get a single thought
   getSingleThought(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
-      .then((thought) => {
+    .select("-__v")  
+    .then((thought) => {
         !thought
           ? res.status(404).json({ message: "No thought with that ID found." })
           : res.json(thought);
@@ -81,7 +82,7 @@ module.exports = {
   addReaction(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
-      { $pull: { reactions: { reactionID: req.params.reactionId } } },
+      { $addToSet: { reactions: req.body } },
       { runValidators: true, new: true }
     )
       .then((thought) =>
