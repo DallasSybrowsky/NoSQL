@@ -6,6 +6,8 @@
 
 This is the backend of a Social Media site. It uses MongoDB, express, and several other technologies to power the site.
 
+Access to the video showing the functionality can be accessed [here](https://drive.google.com/file/d/1hsR7hizjvo23OhEFVeGFKtTqpnvv7bJv/view).
+
 ## Table of Contents
 
 - [Credits](#credits)
